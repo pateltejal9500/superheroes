@@ -1,0 +1,43 @@
+<html ng-app="superhero">
+<head>
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.3/angular.js"></script>
+  <script src="https://sdk.amazonaws.com/js/aws-sdk-2.0.28.min.js"></script>
+  <script src="./scripts.js"></script>
+</head>
+
+<body ng-controller="superheroListCtrl">
+  <h1>My Favorite Superheroes</h1>
+
+  <ul>
+    <li ng-repeat = "category in categories">
+      <a href="#" ng-click ="setCurrentCategory(category)">{{category.name}}</a>
+    </li>
+  </ul>
+
+
+  <form ng-show="addSuperhero()" role="form">
+    <input name="name" placeholder='Name File-No Spaces' ng-model = "name"/><br>
+    <input type="file" ng-model = "file" class="file"  multiple onchange="angular.element(this).scope().onFileSelect(this)"/>
+  </form>
+
+  <div ng-if="Superherolist()">
+    To Download Click On The Picture 
+    <ul>
+      <li ng-repeat = "list in lists">
+        {{list.Key}}<br>
+        <button ng-click="setEditing(list)">EDIT</button><button ng-click="deleting(list)">DELETE</button> <br><a ng-href="http://yh.interview.s3.amazonaws.com/{{list.Key}}"><img src="http://yh.interview.s3.amazonaws.com/{{list.Key}}" height="100" width="100"></a>
+      </li>
+    </ul>
+  </div>
+
+  <div ng-show="editing()">
+    Editing: {{edit.Key}}
+    <form role='form' ng-submit="update(newName)">
+      <input name="title" type="text" placeholder="New File Name-No Spaces" ng-model="newName.name">
+    </form>
+  </div>
+</body>
+</html>
+
+
