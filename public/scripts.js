@@ -1,6 +1,6 @@
 AWS.config.update({
-  accessKeyId:'AKIAI2SSJ7JNXGZM372Q', 
-  secretAccessKey:'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',
+  accessKeyId:'', 
+  secretAccessKey:'',
 });
 
 var bucket = new AWS.S3({params: {Bucket: 'yh.interview'}})
