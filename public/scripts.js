@@ -19,6 +19,7 @@ angular.module('superhero', [])
   function setCurrentCategory(category){; 
     $scope.edit = null
     $scope.currentCategory = category
+    
   }
 
   function addSuperhero(){
@@ -55,6 +56,10 @@ function editing(){
   }
 }
 
+function resetForm(){
+  $scope.name = " "
+  $scope.newName = " "
+}
 
 function update(name){
   alert("File Name Has Been Edited")
@@ -80,6 +85,8 @@ function deleting(list){
       console.log(err);
     }
     if (data) {
+       // $scope.edit = null
+       // resetForm()
        window.location.reload()
      }
    })
@@ -99,6 +106,7 @@ function onFileSelect(element) {
       }
       if (data) {
         alert("File has  been added")   
+        resetForm()
         $scope.currentCategory = null 
         window.location.reload()
       }
