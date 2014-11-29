@@ -29,7 +29,6 @@ angular.module('superhero', [])
   }
 
   function Superherolist(){
-   if($scope.currentCategory !== null && $scope.currentCategory.id === 2)  {
     bucket.listObjects({
       Prefix: "tejalpatel" 
     }, function(err, data) {
@@ -41,8 +40,6 @@ angular.module('superhero', [])
         $scope.$apply();
       }
     });
-    return true
-  }
  }
 
 
