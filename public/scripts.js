@@ -19,6 +19,7 @@ angular.module('superhero', [])
   function setCurrentCategory(category){; 
     $scope.edit = null
     $scope.currentCategory = category
+    $scope.Superherolist();
     
   }
 
