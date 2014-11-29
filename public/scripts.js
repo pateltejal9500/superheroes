@@ -37,7 +37,8 @@ angular.module('superhero', [])
         console.log(err)
       }
       if (data) {
-        $scope.lists = data.Contents
+        $scope.lists = data.Contents;
+        $scope.$apply();
       }
     });
     return true
