@@ -19,6 +19,7 @@ angular.module('superhero', [])
   function setCurrentCategory(category){; 
     $scope.edit = null
     $scope.currentCategory = category
+    $scope.Superherolist();
     
   }
 
@@ -29,7 +30,6 @@ angular.module('superhero', [])
   }
 
   function Superherolist(){
-   if($scope.currentCategory !== null && $scope.currentCategory.id === 2)  {
     bucket.listObjects({
       Prefix: "tejalpatel" 
     }, function(err, data) {
@@ -37,11 +37,10 @@ angular.module('superhero', [])
         console.log(err)
       }
       if (data) {
-        $scope.lists = data.Contents
+        $scope.lists = data.Contents;
+        $scope.$apply();
       }
     });
-    return true
-  }
  }
 
 
