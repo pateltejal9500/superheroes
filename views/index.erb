@@ -21,7 +21,7 @@
     <input type="file" ng-model = "file" class="file"  multiple onchange="angular.element(this).scope().onFileSelect(this)"/>
   </form>
 
-  <div ng-if="Superherolist()">
+  <div ng-if="currentCategory.id === 2">
     To Download Click On The Picture 
     <ul>
       <li ng-repeat = "list in lists">
@@ -39,5 +39,4 @@
   </div>
 </body>
 </html>
-
 
