@@ -3,7 +3,7 @@ AWS.config.update({
   secretAccessKey:'',
 });
 
-var bucket = new AWS.S3({params: {Bucket: 'yh.interview'}})
+var bucket = new AWS.S3({params: {Bucket: 'Bucketname'}})
 
 angular.module('superhero', [])
 
@@ -63,7 +63,7 @@ function resetForm(){
 function update(name){
   alert("File Name Has Been Edited")
   bucket.copyObject({
-    CopySource: "http://yh.interview.s3.amazonaws.com/"+$scope.edit.Key,
+    CopySource: "http://bucketname.s3.amazonaws.com/"+$scope.edit.Key,
     Key: "tejalpatel/"+name.name + ".gif",
     ACL: "public-read"  
   }, function(err, data) { 
